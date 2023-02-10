@@ -1,0 +1,16 @@
+.appContainer {
+  display: grid;
+  grid-template:
+  "header header" 10%
+  "allNotes editNote" 90%
+  / 25% 75%;
+
+  max-width: 1200px;
+  min-width: 600px;
+  min-height: 600px;
+
+  margin: 1.5rem 2rem;
+  background-color: #333;
+  border: 1px solid rgba(182, 135, 25, 0.269);
+  border-radius: 5px;
+}

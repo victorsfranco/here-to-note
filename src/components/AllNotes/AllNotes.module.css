@@ -1,0 +1,5 @@
+.allNotes {
+  grid-area: "allNotes";
+  grid-row: allNotes;
+  background-color: #333;
+}

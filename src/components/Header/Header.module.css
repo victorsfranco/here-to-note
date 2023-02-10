@@ -1,0 +1,16 @@
+.header {
+  grid-area: "header";
+  grid-column: header;
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #c2bfbf;
+  border: 1px solid rgba(182, 135, 25, 0.269);
+  background-color: #333;
+}
+
+.header h1 {
+  background-color: #333;
+}
