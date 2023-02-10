@@ -1,0 +1,44 @@
+.noteContainer {
+  display: flex;
+  height: 5rem;
+  padding: 0.5rem;
+  background-color: #353535;
+  border: 1px solid rgba(182, 135, 25, 0.269);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+
+  background-color: #353535;
+  color: #c2bfbf;
+}
+
+.textContainer p {
+  background-color: #353535;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.textContainer span {
+  font-weight: 300;
+  background-color: #353535;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #353535;
+}
+
+.deleteIcon {
+  background-color: #353535;
+  color: rgb(163, 28, 28);
+  font-size: larger;
+  cursor: pointer;
+}
