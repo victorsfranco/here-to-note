@@ -26,7 +26,6 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition}) => {
 
   return (
     <div className={styles.editNote} >
-      <button onClick={handleSaveNote}>save</button>
       <textarea
         placeholder='Start to write a new Note!'
         value={inputData}
@@ -36,6 +35,9 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition}) => {
         onChange={handleInputChange}
       >
       </textarea>
+      <div className={styles.buttonContainer}>
+        <button onClick={handleSaveNote}>Save</button>
+      </div>
     </div>
   )
 }
