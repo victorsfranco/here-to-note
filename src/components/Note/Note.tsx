@@ -9,7 +9,6 @@ interface NoteProps {
 }
 
 const Note: FunctionComponent<NoteProps>= ({note}) => {
-  // console.log(note.content)
   return (
 
     <div className={styles.noteContainer}>

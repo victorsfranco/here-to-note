@@ -15,7 +15,7 @@ const App = ({}: any) => {
   const [currentNotes, setCurrentNotes] = useState<Note[]>([]);
  
   
-  
+  /* Function that manipulate the currentNotes array. This function add a new note in the currentNotes array, receiving as argument the new note to be added. */
   const handleNoteAddition = (noteContent: string) => {
     const newNotes = [
       ...currentNotes,
@@ -27,7 +27,6 @@ const App = ({}: any) => {
 
     if (noteContent != '') {
       setCurrentNotes(newNotes);
-      // console.log(currentNotes)
     }
   }
 
