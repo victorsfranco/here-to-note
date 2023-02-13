@@ -1,14 +1,10 @@
-import { useState, FunctionComponent } from 'react';
+import { useState, FunctionComponent, useEffect } from 'react';
+
+import { EditNoteProps, noteText } from './types';
 
 import styles from './EditNote.module.css'
 
-type noteText = string
-
-interface EditNoteProps {
-  handleNoteAddition: (noteContent: string) => void;
-}
-
-const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition}) => {
+const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBeeingEdited, currentNotes}) => {
 
   const [inputData, setInputData] = useState<noteText>('');
   
@@ -23,6 +19,17 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition}) => {
     handleNoteAddition(inputData.trim());
     setInputData('');
   }
+
+  useEffect(() => {
+    if (noteBeeingEdited !== null) {
+      const result = currentNotes.find((i) => {
+       return i.id === noteBeeingEdited
+      })
+      if (result) {
+        setInputData(result.content)
+      }
+    }
+  },[noteBeeingEdited])
 
   return (
     <div className={styles.editNote} >
