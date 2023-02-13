@@ -6,10 +6,15 @@ interface NoteProps {
   note: {
     content: string;
     id: string;
-  }
+  },
+  handleNoteDeletion: any
 }
 
-const Note: FunctionComponent<NoteProps>= ({note}) => {
+
+const Note: FunctionComponent<NoteProps>= ({note, handleNoteDeletion}) => {
+  const handleNoteClick = () => {
+    handleNoteDeletion(note.id)
+  }
   return (
 
     <div className={styles.noteContainer}>
@@ -18,7 +23,7 @@ const Note: FunctionComponent<NoteProps>= ({note}) => {
         <span>10/02/2023 12:00</span>
       </div>
       <div className={styles.iconsContainer}>
-        <CgTrash className={styles.deleteIcon}/>
+        <CgTrash className={styles.deleteIcon} onClick={handleNoteClick}/>
       </div>
 
     </div>

@@ -11,12 +11,12 @@ interface Note {
   id: string
 }
 
-const App = ({}: any) => {
+const App = (): JSX.Element => {
   const [currentNotes, setCurrentNotes] = useState<Note[]>([]);
  
   
   /* Function that manipulate the currentNotes array. This function add a new note in the currentNotes array, receiving as argument the new note to be added. */
-  const handleNoteAddition = (noteContent: string) => {
+  const handleNoteAddition = (noteContent: string): void => {
     const newNotes = [
       ...currentNotes,
       {
@@ -30,10 +30,15 @@ const App = ({}: any) => {
     }
   }
 
+  const handleNoteDeletion = (noteId: string) => {
+    const updatedNotes = currentNotes.filter(note => note.id != noteId);
+    setCurrentNotes(updatedNotes)
+  }
+
   return (
     <div className={styles.appContainer}>
       <Header/>
-      <AllNotes currentNotes={currentNotes} />
+      <AllNotes currentNotes={currentNotes} handleNoteDeletion={handleNoteDeletion} />
       <EditNote handleNoteAddition={handleNoteAddition}/>
     </div>
   )

@@ -6,7 +6,7 @@ type Note = {
   id: string;
 }
 
-const AllNotes = ({currentNotes}: any) => {
+const AllNotes = ({currentNotes, handleNoteDeletion}: any) => {
   console.log(currentNotes)
   return (
     <div className={styles.allNotes}>
@@ -15,7 +15,9 @@ const AllNotes = ({currentNotes}: any) => {
 
         <Note
           key={i.id}
-          note={i} />
+          note={i}
+          handleNoteDeletion={handleNoteDeletion}
+        />
       ))}
 
     </div>
