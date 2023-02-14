@@ -4,5 +4,5 @@ export interface NoteProps {
     id: string;
   },
   handleNoteDeletion: (id: string) => void,
-  handleShowNote: (noteId: string) => void
+  handleShowNote: (noteId: string) => void,
 }
