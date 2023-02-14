@@ -3,7 +3,7 @@
   grid-template:
   "header header" 10%
   "allNotes editNote" 90%
-  / 25% 75%;
+  / 30% 70%;
 
   max-width: 1200px;
   min-width: 600px;
