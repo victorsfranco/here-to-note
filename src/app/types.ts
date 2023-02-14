@@ -1,4 +1,4 @@
-export interface NoteProp {
+export interface AppProps {
   content: string
   id: string
 }

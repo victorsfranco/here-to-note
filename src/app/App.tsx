@@ -6,10 +6,10 @@ import AllNotes from '../components/AllNotes/AllNotes'
 import EditNote from '../components/EditNote/EditNote'
 import Header from '../components/Header/Header'
 
-import { IsEditingNote, NoteProp } from './types';
+import { IsEditingNote, AppProps } from './types';
 
 const App = (): JSX.Element => {
-  const [currentNotes, setCurrentNotes] = useState<NoteProp[]>([]);
+  const [currentNotes, setCurrentNotes] = useState<AppProps[]>([]);
   const [noteBeeingEdited, setNoteBeeingEdited] = useState<IsEditingNote>(null);
   
   /* Function that manipulate the currentNotes array. This function add a new note in the currentNotes array, receiving as argument the new note to be added. */

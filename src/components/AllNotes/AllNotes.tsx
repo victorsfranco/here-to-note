@@ -1,12 +1,14 @@
 import Note from '../Note/Note'
 import styles from './AllNotes.module.css'
-import { NoteProp } from '../../app/types'
+import { AppProps } from '../../app/types'
+import { FunctionComponent } from 'react'
+import { AllNoteProps } from './types'
 
-const AllNotes = ({currentNotes, handleNoteDeletion, handleShowNote}: any) => {
+const AllNotes: FunctionComponent<AllNoteProps> = ({currentNotes, handleNoteDeletion, handleShowNote}) => {
   return (
     <div className={styles.allNotes}>
 
-      {currentNotes.map((i: NoteProp) => (
+      {currentNotes.map((i: AppProps) => (
 
         <Note
           key={i.id}
