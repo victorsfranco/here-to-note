@@ -4,6 +4,8 @@
   padding: 0.5rem;
   background-color: #353535;
   border: 1px solid rgba(182, 135, 25, 0.269);
+
+  cursor: pointer;
 }
 
 .textContainer {
