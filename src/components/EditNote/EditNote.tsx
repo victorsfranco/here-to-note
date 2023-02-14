@@ -4,7 +4,7 @@ import { EditNoteProps, noteText } from './types';
 
 import styles from './EditNote.module.css'
 
-const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBeeingEdited, currentNotes}) => {
+const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBeeingEdited, currentNotes, handleWriteNewNote}) => {
 
   const [inputData, setInputData] = useState<noteText>('');
   
@@ -16,17 +16,7 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBee
   /* Fuction that take the value of inputData state, and use it
   as argument of handleNoteAddition function. (handleNoteAddition docs in App.tsx) */
   
-  useEffect(() => {
-    if (noteBeeingEdited !== null) {
-      const result = currentNotes.find((i) => {
-        return i.id === noteBeeingEdited
-      })
-      if (result) {
-        setInputData(result.content)
-      }
-    }
-  },[noteBeeingEdited])
-
+  
   const handleSaveNote = () => {
     if (noteBeeingEdited === null) {
       handleNoteAddition(inputData.trim());
@@ -38,6 +28,22 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBee
       }
     }
   }
+  
+  const handleNewNoteClick = () => {
+    setInputData('');
+    handleWriteNewNote();
+  }
+  
+  useEffect(() => {
+    if (noteBeeingEdited !== null) {
+      const result = currentNotes.find((i) => {
+        return i.id === noteBeeingEdited
+      })
+      if (result) {
+        setInputData(result.content)
+      }
+    }
+  },[noteBeeingEdited])
 
   return (
     <div className={styles.editNote} >
@@ -51,7 +57,8 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBee
       >
       </textarea>
       <div className={styles.buttonContainer}>
-        <button onClick={handleSaveNote}>Save</button>
+        <button className={styles.saveButton} onClick={handleSaveNote}>Save</button>
+        <button className={styles.newNoteButton} onClick={handleNewNoteClick}>+ New Note</button>
       </div>
     </div>
   )

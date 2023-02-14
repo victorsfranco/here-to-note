@@ -2,7 +2,7 @@ import Note from '../Note/Note'
 import styles from './AllNotes.module.css'
 import { NoteProp } from '../../app/types'
 
-const AllNotes = ({currentNotes, handleNoteDeletion, handleShowNote, setDateTime}: any) => {
+const AllNotes = ({currentNotes, handleNoteDeletion, handleShowNote}: any) => {
   return (
     <div className={styles.allNotes}>
 

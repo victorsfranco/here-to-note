@@ -4,7 +4,8 @@ export interface EditNoteProps {
   currentNotes: {
     id: string,
     content: string;
-  }[]
+  }[],
+  handleWriteNewNote: () => void
 }
 
 export type noteText = string
