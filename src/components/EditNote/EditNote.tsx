@@ -15,21 +15,29 @@ const EditNote: FunctionComponent<EditNoteProps> = ({handleNoteAddition, noteBee
 
   /* Fuction that take the value of inputData state, and use it
   as argument of handleNoteAddition function. (handleNoteAddition docs in App.tsx) */
-  const handleSaveNote = () => {
-    handleNoteAddition(inputData.trim());
-    setInputData('');
-  }
-
+  
   useEffect(() => {
     if (noteBeeingEdited !== null) {
       const result = currentNotes.find((i) => {
-       return i.id === noteBeeingEdited
+        return i.id === noteBeeingEdited
       })
       if (result) {
         setInputData(result.content)
       }
     }
   },[noteBeeingEdited])
+
+  const handleSaveNote = () => {
+    if (noteBeeingEdited === null) {
+      handleNoteAddition(inputData.trim());
+      setInputData('');
+    } else {
+      const editedNote = currentNotes.find(i => i.id === noteBeeingEdited)
+      if (editedNote  && editedNote.content != '') {
+        editedNote.content = inputData;
+      }
+    }
+  }
 
   return (
     <div className={styles.editNote} >

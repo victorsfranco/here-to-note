@@ -33,12 +33,14 @@ const App = (): JSX.Element => {
     setCurrentNotes(updatedNotes)
   }
 
-
+const handleShowNote = (noteId: string): void => {
+  setNoteBeeingEdited(noteId)
+}
 
   return (
     <div className={styles.appContainer}>
       <Header/>
-      <AllNotes currentNotes={currentNotes} handleNoteDeletion={handleNoteDeletion} />
+      <AllNotes currentNotes={currentNotes} handleNoteDeletion={handleNoteDeletion} handleShowNote={handleShowNote}/>
       <EditNote handleNoteAddition={handleNoteAddition} noteBeeingEdited={noteBeeingEdited} currentNotes={currentNotes}/>
     </div>
   )

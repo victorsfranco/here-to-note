@@ -4,17 +4,14 @@ import {CgTrash} from 'react-icons/cg'
 
 import { NoteProps } from './types';
 
-const Note: FunctionComponent<NoteProps>= ({note, handleNoteDeletion}) => {
+const Note: FunctionComponent<NoteProps>= ({note, handleNoteDeletion, handleShowNote}) => {
 
   const handleTrashClick = () => {
     handleNoteDeletion(note.id)
   }
 
 const handleNoteClick = () => {
-  const selectedId: string = note.id;
-  const selectedContent: string = note.content;
-  console.log(selectedContent)
-  console.log(selectedId)
+  handleShowNote(note.id)
 }
 
   return (
