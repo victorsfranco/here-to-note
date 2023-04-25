@@ -31,6 +31,7 @@ const App = (): JSX.Element => {
   const handleNoteDeletion = (noteId: string) => {
     const updatedNotes = currentNotes.filter(note => note.id != noteId);
     setCurrentNotes(updatedNotes)
+    setNoteBeingEdited(null)
   }
 
   const handleShowNote = (noteId: string): void => {
