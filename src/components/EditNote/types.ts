@@ -1,6 +1,6 @@
 export interface EditNoteProps {
   handleNoteAddition: (noteContent: string) => void;
-  noteBeeingEdited: null | string;
+  noteBeingEdited: null | string;
   currentNotes: {
     id: string,
     content: string;

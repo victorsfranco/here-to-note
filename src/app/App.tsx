@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './App.module.css'
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import AllNotes from '../components/AllNotes/AllNotes'
 import EditNote from '../components/EditNote/EditNote'
@@ -10,8 +10,8 @@ import { IsEditingNote, AppProps } from './types';
 
 const App = (): JSX.Element => {
   const [currentNotes, setCurrentNotes] = useState<AppProps[]>([]);
-  const [noteBeeingEdited, setNoteBeeingEdited] = useState<IsEditingNote>(null);
-  
+  const [noteBeingEdited, setNoteBeingEdited] = useState<IsEditingNote>(null);
+
   /* Function that manipulate the currentNotes array. This function add a new note in the currentNotes array, receiving as argument the new note to be added. */
   const handleNoteAddition = (noteContent: string): void => {
 
@@ -34,21 +34,21 @@ const App = (): JSX.Element => {
   }
 
   const handleShowNote = (noteId: string): void => {
-    setNoteBeeingEdited(noteId)
+    setNoteBeingEdited(noteId)
   }
 
   const handleWriteNewNote = () => {
-    setNoteBeeingEdited(null)
+    setNoteBeingEdited(null)
   }
 
   return (
     <div className={styles.appContainer}>
-      <Header/>
-      <AllNotes currentNotes={currentNotes} handleNoteDeletion={handleNoteDeletion} handleShowNote={handleShowNote}/>
+      <Header />
+      <AllNotes currentNotes={currentNotes} handleNoteDeletion={handleNoteDeletion} handleShowNote={handleShowNote} />
       <EditNote
         currentNotes={currentNotes}
         handleNoteAddition={handleNoteAddition}
-        noteBeeingEdited={noteBeeingEdited}
+        noteBeingEdited={noteBeingEdited}
         handleWriteNewNote={handleWriteNewNote}
       />
 
